@@ -1,0 +1,26 @@
+import tkinter
+screen=tkinter.Tk()
+screen.geometry("300x200")
+screen.title("Timer")
+hour=tkinter.StringVar()
+mins=tkinter.StringVar()
+sec=tkinter.StringVar()
+
+hour.set("00")
+mins.set("00")
+sec.set("00")
+
+
+entry1=tkinter.Entry(screen,textvariable=hour,font=("arial",20,"bold"),width=5)
+entry2=tkinter.Entry(screen,textvariable=mins,font=("arial",20,"bold"),width=5)
+entry3=tkinter.Entry(screen,textvariable=sec,font=("arial",20,"bold"),width=5)
+
+button1=tkinter.Button(screen,text="Start Timer")
+
+entry1.grid(row=1,column=2)
+entry2.grid(row=1,column=3)
+entry3.grid(row=1,column=4)
+
+button1.grid(row=2,column=3)
+
+screen.mainloop()
