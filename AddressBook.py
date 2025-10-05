@@ -2,6 +2,49 @@ import tkinter
 screen=tkinter.Tk()
 screen.geometry("500x500")
 screen.title("Address Book")
+data={}
+
+def open():
+    pass
+
+def edit():
+    pass
+
+def delete():
+    index=listbox1.curselection()
+    name=listbox1.get(index)
+    del data[name]
+    update()
+
+
+
+def update_add():
+    name=entry1.get()
+    address=entry2.get()
+    mobile=entry3.get()
+    Email=entry4.get()
+    birthday=entry5.get()
+    info=[address,mobile,Email,birthday]
+    data[name]=info
+    entry1.delete(0,tkinter.END)
+    entry2.delete(0,tkinter.END)
+    entry3.delete(0,tkinter.END)
+    entry4.delete(0,tkinter.END)
+    entry5.delete(0,tkinter.END)
+    update()
+
+def update():
+    listbox1.delete(0,tkinter.END)
+    for item in data.keys():
+        listbox1.insert(tkinter.END,item)
+
+    
+
+
+def save():
+    pass
+
+
 
 label1=tkinter.Label(text="My Address Book",font=("arial",15))
 label2=tkinter.Label(text="Name:",font=("arial",15))
@@ -16,11 +59,11 @@ entry3=tkinter.Entry()
 entry4=tkinter.Entry()
 entry5=tkinter.Entry()
 
-button1=tkinter.Button(text="Open",font=("arial",15))
-button2=tkinter.Button(text="Edit",font=("arial",15))
-button3=tkinter.Button(text="Delete",font=("arial",15))
-button4=tkinter.Button(text="update/add",font=("arial",15))
-button5=tkinter.Button(text="save",font=("arial",15))
+button1=tkinter.Button(text="Open",font=("arial",15),command=open)
+button2=tkinter.Button(text="Edit",font=("arial",15),command=edit)
+button3=tkinter.Button(text="Delete",font=("arial",15),command=delete)
+button4=tkinter.Button(text="update/add",font=("arial",15),command=update_add)
+button5=tkinter.Button(text="save",font=("arial",15),command=save)
 
 listbox1=tkinter.Listbox(width=25,height=10,font=("arial",15))
 
